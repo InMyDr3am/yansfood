@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('judul')
-    Halaman Data Menu Harus Restock
+    Halaman Data Menu
 @endsection
 @push('scripts')
     <script src="{{ asset('layout/plugins/datatables/jquery.dataTables.js') }}"></script>

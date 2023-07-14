@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class SalesDetail extends Model
 {
-    use HasFactory;
+    protected $table = 'sales_detail';
+    protected $fillable = ["id","sales_id","menu_id","qty"];
+
+    public function menu()
+    {
+        return $this->belongsTo('App\Models\Menu','menu_id');
+    }
+
 }

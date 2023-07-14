@@ -19,6 +19,7 @@ class CreateSalesTable extends Migration
             $table->unsignedBigInteger('customer_id');   
             $table->date('sales_date');    
             $table->float('total_price');
+            $table->string('no_order')->nullable();
             $table->foreign('outlet_id')->references('id')->on('outlet');
             $table->foreign('customer_id')->references('id')->on('customer');   
             $table->timestamps();
