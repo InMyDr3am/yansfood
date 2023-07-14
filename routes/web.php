@@ -4,7 +4,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SalesDetailController;
-use App\Models\SalesDetail;
+use App\Http\Controllers\MenuCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('menu/category', MenuCategoryController::class);
 Route::resource('menu', MenuController::class);
 Route::resource('outlet', OutletController::class);
 Route::resource('penjualan', SalesController::class);

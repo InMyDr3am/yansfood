@@ -60,132 +60,31 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-header">DATA PRODUK</li>
+              <li class="nav-header">DATA OUTLET</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon fa-solid fa-shirt"></i>
-                      <p>Launching Product
-                        <i class="right fas fa-angle-left"></i>
+                    <a href="/outlet/" class="nav-link">
+                      <i class="fa-solid fa-store nav-icon"></i>
+                      <p>Outlet Resto
+                        {{-- <i class="right fas fa-angle-left"></i> --}}
                       </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="/produk/create" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Input Produk</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/bahan-baku/create" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Input Bahan Kain</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/inventory/create" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Input Inventori</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/bahan-baku" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>List Bahan Kain</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/produk" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>List Produk</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/variasi-warna" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Variasi Warna</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/variasi-ukuran" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Variasi Ukuran</p>
-                        </a>
-                      </li>
-                      
-                    </ul>
                 </li>
                 
-                <li class="nav-header">DATA KARYAWAN</li>
+                <li class="nav-header">DATA MENU</li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/menu/category" class="nav-link">
                     <i class="nav-icon fas fa-sharp fa-solid fa-users"></i>
                     <p>
-                      Karyawan
+                      Kategori Menu
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/karyawan" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>List Karyawan</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/karyawan/create" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Input Karyawan Baru</p>
-                      </a>
-                    </li>
-                    {{-- <li class="nav-item">
-                      <a href="/karyawan/admin" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Bagian Admin</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/karyawan/penjahit" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Bagian Jahit</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/karyawan/bagian-gudang" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Bagian Gudang</p>
-                      </a>
-                    </li> --}}
-                  </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa-solid fa-user"></i>
-                    <p>
-                      Jabatan
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/jabatan" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>List Jabatan</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/jabatan/create" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Input Jabatan Baru</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-header">PENGADAAN BARANG</li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="" class="nav-link">
                     <i class="nav-icon fa-solid fa-cubes"></i>
                     <p>
-                      Bahan Baku Kain
+                      Data Menu
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
@@ -193,13 +92,13 @@
                     <li class="nav-item">
                       <a href="/bahan-baku/stock/create" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Input Stok Baru</p>
+                        <p>Harus Restock</p>
                       </a>
                     </li>  
                     <li class="nav-item">
-                      <a href="/pengadaan-barang/belanja-bahan-baku/create" class="nav-link">
+                      <a href="/menu" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Belanja Bahan Kain</p>
+                        <p>All Menu</p>
                       </a>
                     </li>  
                     <li class="nav-item">
