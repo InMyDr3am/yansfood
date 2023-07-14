@@ -13,7 +13,18 @@ class MenuController extends Controller
         $menus = Menu::select('id', 'name', 'menu_category_id', 'qty_stock','menu_info_id')
                         ->orderBy('name', 'ASC')->get();
         $categories = MenuCategory::all();
+
         return view('menu.index', compact('menus', 'categories'));
+    }
+
+    public function showRestock()
+    {
+        $menus = Menu::where('menu_info_id', 1)
+                        ->select('id', 'name', 'menu_category_id', 'qty_stock','menu_info_id')
+                        ->orderBy('name', 'ASC')->get();
+        $categories = MenuCategory::all();
+
+        return view('menu.restock', compact('menus', 'categories'));
     }
 
     public function store(Request $request)

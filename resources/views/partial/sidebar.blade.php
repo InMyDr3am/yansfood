@@ -62,21 +62,20 @@
               </li>
               <li class="nav-header">DATA OUTLET</li>
                 <li class="nav-item">
-                    <a href="/outlet/" class="nav-link">
+                    <a href="/outlet" class="nav-link">
                       <i class="fa-solid fa-store nav-icon"></i>
                       <p>Outlet Resto
                         {{-- <i class="right fas fa-angle-left"></i> --}}
                       </p>
                     </a>
                 </li>
-                
                 <li class="nav-header">DATA MENU</li>
                 <li class="nav-item">
                   <a href="/menu/category" class="nav-link">
-                    <i class="nav-icon fas fa-sharp fa-solid fa-users"></i>
+                    <i class="fa-solid fa-tags nav-icon"></i></i>
                     <p>
                       Kategori Menu
-                      <i class="right fas fa-angle-left"></i>
+                      {{-- <i class="right fas fa-angle-left"></i> --}}
                     </p>
                   </a>
                 </li>
@@ -90,7 +89,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="/bahan-baku/stock/create" class="nav-link">
+                      <a href="/menu/harus-restock" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Harus Restock</p>
                       </a>
@@ -101,30 +100,6 @@
                         <p>All Menu</p>
                       </a>
                     </li>  
-                    <li class="nav-item">
-                      <a href="/bahan-baku/stock" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Stok Bahan </p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/bahan-baku/stock/total-stock" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Total Stok Bahan </p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/bahan-baku/stock/list-harus-restock" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>List Bahan Menipis</p>
-                      </a>
-                    </li>
-                    {{-- <li class="nav-item">
-                      <a href="/bahan-baku/list-restock" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>List Bahan Menipis</p>
-                      </a>
-                    </li>       --}}
                   </ul>
                 </li>
                 <li class="nav-item">

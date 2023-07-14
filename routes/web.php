@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('menu/category', MenuCategoryController::class);
+Route::get('/menu/harus-restock', [App\Http\Controllers\MenuController::class, 'showRestock']);
 Route::resource('menu', MenuController::class);
 Route::resource('outlet', OutletController::class);
 Route::resource('penjualan', SalesController::class);
