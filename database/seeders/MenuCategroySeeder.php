@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MenuCategory;
 use Illuminate\Database\Seeder;
 
 class MenuCategroySeeder extends Seeder
@@ -13,6 +14,11 @@ class MenuCategroySeeder extends Seeder
      */
     public function run()
     {
-        //
+        MenuCategory::create([
+            'name' => 'Makanan',
+        ]);
+        MenuCategory::create([
+            'name' => 'Minuman',
+        ]);
     }
 }

@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Outlet extends Model
+class MenuInfo extends Model
 {
-    protected $table = 'outlet';
+    protected $table = 'menu_info';
     protected $fillable = ["id","name"];
 }

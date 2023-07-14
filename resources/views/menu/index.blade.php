@@ -21,7 +21,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <a href="/menu/create" class="btn btn-secondary btn-sm float-right mr-2" title="Tambah Menu"><i class="fa-solid fa-plus"></i></a> --}}
     <button class="btn btn-secondary btn-sm float-right mr-2" title="Tambah Menu"
         data-toggle="modal" data-target="#modal-addMenu"> 
         <i class="fa-solid fa-plus"></i>
@@ -32,7 +31,7 @@
             <tr>
                 <th>No.</th>
                 <th>Nama Menu</th>
-                <th>Kategori </th>
+                <th>Kategori Menu </th>
                 <th style='text-align:center'>Quantity</th>
                 <th style='text-align:center'>Status</th>
                 <th style='text-align:center'>Aksi</th>
@@ -46,8 +45,8 @@
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $menu->name }}</td>
                     <td>{{ $menu->menuCategory->name }}</td>
-                    <td align="right"> 100 pcs</td>
-                    <td align="right">Aman</td>
+                    <td align="right"> {{ $menu->qty_stock }} pcs</td>
+                    <td align="right"> {{ $menu->menuInfo->name }} </td>
                     <td style='text-align:center'>   
                         <button class="btn btn-danger btn-sm" title="Hapus Data" 
                             data-toggle="modal" data-target="#modal-deleteMenu{{ $menu->id }}"> 

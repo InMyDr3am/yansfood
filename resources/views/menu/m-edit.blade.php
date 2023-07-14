@@ -2,14 +2,15 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Edit Menu</h4>
+                <h4 class="modal-title">Edit Data Menu</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/menu" method="POST" enctype="multipart/form-data">
+            <form action="/menu/{{ $menu->id }}" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     @csrf
+                    @method('put')
                     <div class="row">
                         <div class="col-sm-12">
                             <label>Nama Menu</label>
@@ -26,13 +27,13 @@
                                 </div>
                                 <select required name="menuCategoryId" class="form-control select2bs4">
                                     @foreach ($categories as $cat)
-                                        <option value="{{ $menu->menu_category_id }}"  {{ $cat->id == $menu->menu_category_id ? 'selected="selected"' : '' }} disabled>{{ $cat->name }}</option>
+                                        <option value="{{ $cat->id }}"  {{ $cat->id == $menu->menu_category_id ? 'selected="selected"' : '' }}>{{ $cat->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <label>Jumlah Stock Yang Ada</label>
                             <div class="input-group mb-3">
-                                <input type="number" min="1" class="form-control" name="qty_roll_material" required>
+                                <input type="number" min="1" class="form-control" name="qty_stock" required value="{{ $menu->qty_stock }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         Pcs
