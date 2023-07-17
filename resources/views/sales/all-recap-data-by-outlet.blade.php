@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('judul')
-    Halaman Data Penjualan Grabfood
+    Halaman Rekap Data Penjualan {{ $outlet->name }}
 @endsection
 @push('scripts')
     <script src="{{ asset('layout/plugins/datatables/jquery.dataTables.js') }}"></script>
@@ -21,38 +21,34 @@
             {{ session('success') }}
         </div>
     @endif
-    List data penjualan<br><br>
+    <b>Rekap data penjualan {{ $outlet->name }} tanggal {{ $sales_date }}</b><br><br>
     <table id="example1" class="table table-bordered table-striped">
         <thead class="bg-warning">
             <tr>
                 <th>No.</th>
                 <th>Nama Customer</th>
                 <th>Nama Outlet</th>
-                <th style='text-align:center'>Tanggal Penjualan </th>
+                <th>Menu Terjual</th>
                 <th style='text-align:center'>Total Pendapatan</th>
                 <th style='text-align:center'>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($sales as $key =>  $sales)
+            @forelse ($sales as $key =>  $sale)
                 {{-- @include('menu.m-edit')
                 @include('menu.m-delete') --}}
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $sales->customer->name }}</td>
-                    <td>{{ $sales->outlet->name }}</td>
-                    <td align="right"> {{ $sales->sales_date->translatedFormat('l d F Y') }}</td>
-                    <td align="right"> Rp. {{ number_format($sales->total_price) }} </td>
+                    <td>{{ $sale->customer->name }}</td>
+                    <td>{{ $sale->outlet->name }}</td>
+                    <td>
+                        @foreach ($sale->salesDetails as $key =>  $saleDet)
+                            {{ $key + 1 }}.  {{ $saleDet->menu->name }} - {{ $saleDet->qty }} pcs <br>
+                        @endforeach
+                    </td>
+                    <td align="right"> Rp. {{ number_format($sale->total_price) }} </td>
                     <td style='text-align:center'>   
-                        {{-- <button class="btn btn-danger btn-sm" title="Hapus Data" 
-                            data-toggle="modal" data-target="#modal-deleteMenu{{ $menu->id }}"> 
-                            <i class="fas fa-regular fa-trash"></i>
-                        </button>
-                        <button class="btn btn-primary btn-sm" title="Edit Data"
-                            data-toggle="modal" data-target="#modal-editMenu{{ $menu->id }}">
-                            <i class="fas fa-duotone fa-pen"></i>
-                        </button> --}}
-                        <a href="/penjualan/{{ $sales->id }}" class="btn btn-success btn-sm" title="Cek Detail Data"><i class="fas fa-solid fa-eye"></i></a>
+                        <a href="/penjualan/detail-penjualan/{{ $sale->id }}" class="btn btn-success btn-sm" title="Cek Detail Data"><i class="fas fa-solid fa-eye"></i></a>
                     </td>
                 </tr>
             @empty

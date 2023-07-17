@@ -74,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($sale->salesDetail as $key => $salDet)
+                        @forelse ($sale->salesDetails as $key => $salDet)
                             {{-- @include('private.production.cutting-detail.m-edit-detail')
                             @include('private.production.cutting-detail.m-delete-detail') --}}
                             <tr>

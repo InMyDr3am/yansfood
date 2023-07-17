@@ -4,41 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Menu;
+use App\Models\Outlet;
 use App\Models\Sales;
 use App\Models\SalesDetail;
 use Illuminate\Http\Request;
 
 class SalesController extends Controller
 {
-    public function index()
+    public function index(Sales $model)
     {
-        $sales = Sales::select('id', 'outlet_id', 'customer_id', 'sales_date','total_price')
-                        ->orderBy('id', 'DESC')->get();
-
+        $sales = $model->getAllData();
         return view('sales.index', compact('sales'));
     }
 
-    public function gofood()
+    public function allOutletByDate(Sales $model, $date)
     {
-        $sales = Sales::where('outlet_id', 1)->select('id', 'outlet_id', 'customer_id', 'sales_date','total_price')
-                        ->orderBy('id', 'DESC')->get();
-
-        return view('sales.gofood', compact('sales'));
+        $sales_date = $date;
+        $sales = $model->getAllRecapData($date);
+        return view('sales.all-recap-data', compact('sales', 'sales_date'));
     }
 
-    public function shopeefood()
+    public function showByOutlet(Sales $model, $outlet_name)
     {
-        $sales = Sales::where('outlet_id', 2)->select('id', 'outlet_id', 'customer_id', 'sales_date','total_price')
-                        ->orderBy('id', 'DESC')->get();
-
-        return view('sales.shopeefood', compact('sales'));
+        $outlet = $model->getOutlet($outlet_name);
+        $outlet_id = $outlet->id;
+        $sales = $model->getDataByOutlet($outlet_id);
+        return view('sales.all-data-by-outlet', compact('sales', 'outlet'));
     }
-    public function grabfood()
-    {
-        $sales = Sales::where('outlet_id', 3)->select('id', 'outlet_id', 'customer_id', 'sales_date','total_price')
-                        ->orderBy('id', 'DESC')->get();
 
-        return view('sales.grabfood', compact('sales'));
+    public function showByOutletDate(Sales $model, $outlet_name, $date)
+    {
+        $outlet = $model->getOutlet($outlet_name);
+        $outlet_id = $outlet->id;
+        $sales_date = $date;
+        $sales = $model->getRecapByOutletDate($outlet_id, $sales_date);
+        return view('sales.all-recap-data-by-outlet', compact('sales', 'sales_date', 'outlet'));
     }
 
     public function create()
@@ -94,12 +94,9 @@ class SalesController extends Controller
         return redirect('/penjualan')->with('success', 'Data penjualan berhasil disimpan');
     }
 
-    public function show($id)
+    public function showDetail(Sales $model, $id)
     {
-        $sales = Sales::with('salesDetail')
-                        ->where('id',$id)
-                        ->get();
-        
+        $sales = $model->getDetail($id);
         return view('sales.detail', compact('sales'));     
     }
 }

@@ -24,10 +24,12 @@ Route::get('/', function () {
 
 Route::resource('menu/category', MenuCategoryController::class);
 Route::get('/menu/harus-restock', [App\Http\Controllers\MenuController::class, 'showRestock']);
+
 Route::resource('menu', MenuController::class);
 Route::resource('outlet', OutletController::class);
-Route::get('/penjualan/rekap-gofood', [App\Http\Controllers\SalesController::class, 'gofood']);
-Route::get('/penjualan/rekap-shopeefood', [App\Http\Controllers\SalesController::class, 'shopeefood']);
-Route::get('/penjualan/rekap-grabfood', [App\Http\Controllers\SalesController::class, 'grabfood']);
+Route::get('/penjualan/{outlet_name}', [App\Http\Controllers\SalesController::class, 'showByOutlet']);
+Route::get('/penjualan/{outlet_name}/tanggal/{date}', [App\Http\Controllers\SalesController::class, 'showByOutletDate']);
+Route::get('/penjualan/tanggal/{date}', [App\Http\Controllers\SalesController::class, 'allOutletByDate']);
+Route::get('/penjualan/detail-penjualan/{id}', [App\Http\Controllers\SalesController::class, 'showDetail']);
 Route::resource('penjualan', SalesController::class);
 Route::resource('penjualan/detail', SalesDetailController::class);

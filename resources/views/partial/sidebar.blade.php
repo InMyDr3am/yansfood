@@ -100,19 +100,19 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="/penjualan/rekap-gofood" class="nav-link">
+                      <a href="/penjualan/gofood" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Gofood</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="/penjualan/rekap-shopeefood" class="nav-link">
+                      <a href="/penjualan/shopeefood" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Shopeefood</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="/penjualan/rekap-grabfood" class="nav-link">
+                      <a href="/penjualan/grabfood" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Grabfood</p>
                       </a>
