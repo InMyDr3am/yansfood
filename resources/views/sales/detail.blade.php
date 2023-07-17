@@ -14,8 +14,8 @@
         </div>
     @endif
     @foreach ($sales as  $sale)
-        {{-- @include('private.production.cutting.m-progress-done')
-        @include('private.production.cutting-detail.m-add-material') --}}
+        @include('sales.m-edit')
+        {{-- @include('private.production.cutting-detail.m-add-material') --}}
         <b>Detail data penjualan dengan data berikut</b><br><br>
         <div class="col-sm-6"> 
             <table class="table table-borderless">
@@ -44,24 +44,22 @@
                     <td>:</td>
                     <td>{{ number_format($sale->total_price) }}</td>  
                 </tr>
-                {{-- <tr>
+                <tr>
                     <td colspan="3">
-                        <a href="/produksi/cutting/{{ $pd->id }}/edit" class="btn btn-primary btn-sm float-right mr-3"
-                            data-toggle="modal" data-target="#modal-progressDone"><i class="fa-solid fa-pen-to-square"></i> Edit Data
-                        </a>
+                        <button class="btn btn-primary btn-s float-right" data-toggle="modal" 
+                            data-target="#modal-editSales{{ $sale->id }}" title="Edit Data">
+                            <i class="fas fa-duotone fa-pen"></i> Edit Data
+                        </button>
                     </td>
-                </tr> --}}
+                </tr>
             </table>
         </div><br>
-        {{-- <div class="col-sm-12">
-            <a href="/produksi/cutting/detail/tambah-material/{{ $pd->id }}" class="btn btn-success btn-sm float-right mr-2 mb-3"
-                data-toggle="modal" data-target="#modal-addMaterial"><i class="fa-solid fa-square-plus"></i> Tambah Bahan Yang Dipakai
-            </a>
-        </div> --}}
+        <button  class="btn btn-success btn-s float-right mr-2 mb-3" data-toggle="modal" 
+            data-target="#modal-addDetail{{ $sale->id }}" title="Add Detail Sales">
+            <i class="fa-solid fa-square-plus"></i> Tambah Bahan Yang Dipakai
+        </button>
         <b>Detail data menu yang dipesan</b>
         <div class="card col-sm-10 mt-3">   
-            {{-- <a href="/produksi/cutting/detail/tambah-material/{{ $pd->id }}" class="btn btn-primary">Tambah Data Bahan Yang Dipakai</a><br><br> --}}
-            
             <div class="card-body">
                 <table class="table">
                     <thead>
@@ -69,8 +67,8 @@
                             <th>No.</th>
                             <th>Nama Menu</th>
                             <th>Kategori Menu</th>
-                            <th style='text-align:center'>Jumlahh</th>
-                            {{-- <th style='text-align:center'>Aksi</th> --}}
+                            <th style='text-align:center'>Jumlah</th>
+                            <th style='text-align:center'>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,20 +80,16 @@
                                 <td>{{ $salDet->menu->name }}</td>
                                 <td>{{ $salDet->menu->menuCategory->name }}</td>
                                 <td align="right">{{$salDet->qty }} Pcs</td>
-                                {{-- <td style='text-align:center'>
-                                    @if($pdDet->info == "On Progress")
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal" 
-                                            data-target="#modal-deleteDetail{{ $pdDet->id }}" title="Hapus Datas">
-                                            <i class="fas fa-regular fa-trash"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" 
-                                            data-target="#modal-editDetail{{ $pdDet->id }}" title="Edit Datas">
-                                            <i class="fas fa-duotone fa-pen"></i> 
-                                        </button>
-                                    @else
-                                    <button class="btn btn-secondary btn-m"><i class="fa-solid fa-lock"></i></button>
-                                    @endif
-                                </td> --}}
+                                <td style='text-align:center'>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" 
+                                        data-target="#modal-deleteDetail{{ $salDet->id }}" title="Hapus Datas">
+                                        <i class="fas fa-regular fa-trash"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal" 
+                                        data-target="#modal-editDetail{{ $salDet->id }}" title="Edit Datas">
+                                        <i class="fas fa-duotone fa-pen"></i> 
+                                    </button>
+                                </td>
                             </tr>
                         @empty
                             <h1>Data Kosong</h1>
@@ -119,6 +113,8 @@
     <script src="{{asset('layout/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Select2 -->
     <script src="{{asset('layout/plugins/select2/js/select2.full.min.js') }}"></script>
+    <!-- Pemisah Titik -->
+    <script src="{{asset('js/my.js') }}"></script>
     <script>
         $(function () {
           //Initialize Select2 Elements

@@ -97,6 +97,37 @@ class SalesController extends Controller
     public function showDetail(Sales $model, $id)
     {
         $sales = $model->getDetail($id);
-        return view('sales.detail', compact('sales'));     
+        $outlets = Outlet::select('id', 'name')->get();
+        return view('sales.detail', compact('sales', 'outlets'));     
+    }
+
+    public function update(Request $request, $id)
+    {
+        $sales = Sales::findOrFail($id);
+        $customer = Customer::where(['outlet_id' => $request->outletId, 'name' => $request->customerName])
+                            ->first();
+
+        if(!is_null($customer))
+        {
+            $customer = $customer;
+        }
+
+        elseif(is_null($customer))
+        {
+            $customer = Customer::create([
+                'outlet_id' => $request->outletId,
+                'name' => $request->customerName,
+            ]);
+        }
+        
+        $sales->update([
+            'outlet_id' => $request->get('outletId'),
+            'customer_id' => $customer->id,
+            'sales_date' => $request->get('salesDate'),
+            'total_price' => preg_replace('/\D/','',$request->totalPrice),
+            'no_order' => $request->get('noOrder'),
+        ]);
+
+        return redirect("/penjualan/detail-penjualan/{$id}")->with('success', 'Data penjualan berhasil diperbarui');
     }
 }
