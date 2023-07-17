@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-editMenu{{ $menu->id }}" role="dialog">
+<div class="modal fade" id="modal-editDetail{{ $salDet->id }}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/menu/{{ $menu->id }}" method="POST" enctype="multipart/form-data">
+            <form action="/penjualan/detail/{{ $salDet->id }}" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     @csrf
                     @method('put')
@@ -16,24 +16,17 @@
                             <label>Nama Menu</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
+                                    <span class="input-group-text"><i class="fa-solid fa-clipboard-list"></i></span>
                                 </div>
-                                <input type="text" name="name" class="form-control" value="{{ $menu->name }}" required>
-                            </div>
-                            <label>Kategori Menu</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa-solid fa-tags"></i></span>
-                                </div>
-                                <select required name="menuCategoryId" class="form-control select2bs4">
-                                    @foreach ($categories as $cat)
-                                        <option value="{{ $cat->id }}"  {{ $cat->id == $menu->menu_category_id ? 'selected="selected"' : '' }}>{{ $cat->name }}</option>
+                                <select name="menuId" class="form-control select2bs4" required>
+                                    @foreach ($menus as $menu)
+                                    <option value="{{ $menu->id }}"  {{ $menu->id == $salDet->menu_id ? 'selected="selected"' : '' }}>{{ $menu->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <label>Jumlah Stock Yang Ada</label>
+                            <label>Jumlah Terjual</label>
                             <div class="input-group mb-3">
-                                <input type="number" min="1" class="form-control" name="qty_stock" required value="{{ $menu->qty_stock }}">
+                                <input type="number" min="1" class="form-control" name="qty" required value="{{ $salDet->qty }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         Pcs

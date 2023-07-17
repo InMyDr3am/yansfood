@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-deleteMenu{{ $menu->id }}" role="dialog">
+<div class="modal fade" id="modal-deleteDetail{{ $salDet->id }}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,13 +7,13 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/menu/{{ $menu->id }}" method="POST">
+            <form action="/penjualan/detail/{{ $salDet->id }}" method="POST">
                 <div class="modal-body">
                     @csrf
                     @method('delete')
                     <div class="row">
                         <div class="col-sm-12">
-                            Apakah yakin untuk menghapus menu dengan nama <b> {{ $menu->name }}  </b> ?
+                            Apakah yakin untuk menghapus menu terjual dengan nama <b> {{ $salDet->menu->name }}  </b> ?
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-2 float-right">Yakin</button>

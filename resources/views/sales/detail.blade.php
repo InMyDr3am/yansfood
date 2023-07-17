@@ -15,7 +15,7 @@
     @endif
     @foreach ($sales as  $sale)
         @include('sales.m-edit')
-        {{-- @include('private.production.cutting-detail.m-add-material') --}}
+        @include('sales.sales-detail.m-add')
         <b>Detail data penjualan dengan data berikut</b><br><br>
         <div class="col-sm-6"> 
             <table class="table table-borderless">
@@ -73,8 +73,8 @@
                     </thead>
                     <tbody>
                         @forelse ($sale->salesDetails as $key => $salDet)
-                            {{-- @include('private.production.cutting-detail.m-edit-detail')
-                            @include('private.production.cutting-detail.m-delete-detail') --}}
+                            @include('sales.sales-detail.m-edit')
+                            @include('sales.sales-detail.m-delete')
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>{{ $salDet->menu->name }}</td>

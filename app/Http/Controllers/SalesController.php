@@ -98,7 +98,8 @@ class SalesController extends Controller
     {
         $sales = $model->getDetail($id);
         $outlets = Outlet::select('id', 'name')->get();
-        return view('sales.detail', compact('sales', 'outlets'));     
+        $menus = Menu::where('qty_stock', '>', 0)->select('id', 'name')->get();
+        return view('sales.detail', compact('sales', 'outlets', 'menus'));     
     }
 
     public function update(Request $request, $id)
